@@ -1,3 +1,5 @@
+#include "telas.h"
+
 //menu sobre nos
 int menuSobre(void) {
   int op0;
@@ -19,73 +21,7 @@ int menuSobre(void) {
     printf("///                                                                         ///\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
-}
-
-//menu principal
-int menuPrincipal(void) {
-	int op;
-    printf("\n");
-    printf("/////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                               ///\n");
-    printf("///             *************************************             ///\n");
-    printf("///             ** Programa de Digitacao do Kiiush **             ///\n");
-    printf("///             *************************************             ///\n");
-    printf("///                                                               ///\n");
-    printf("///                       1 - Jogar                               ///\n");
-    printf("///                       2 - Configuracoes                       ///\n");
-    printf("///                       3 - Sobre Nos                           ///\n");
-    printf("///                       4 - Placares                            ///\n");    
-    printf("///                       0 - Sair                                ///\n");
-	scanf("%i", &op);
-	getchar();
-    printf("///                                                               ///\n");
-    printf("/////////////////////////////////////////////////////////////////////\n");
-    printf("\n");
-	return op;
-}
-
-//menu de configuracoes
-int menuConfig (void) {
-  int op2;
-    printf("\n");
-    printf("/////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                               ///\n");
-    printf("///                      *******************                      ///\n");
-    printf("///                      ** Configuracoes **                      ///\n");
-    printf("///                      *******************                      ///\n");
-    printf("///                                                               ///\n");
-    printf("///                       1 - Conta                               ///\n");
-    printf("///                       2 - Resetar Dados                       ///\n");
-    printf("///                                                               ///\n");
-    printf("///                    Pressione 0 para voltar                    ///\n");
-    scanf("%i", &op2);
-    getchar();
-    printf("///                                                               ///\n");
-    printf("/////////////////////////////////////////////////////////////////////\n");
-    printf("\n");
-  return op2;
-}
-
-//menu da conta
-int menuConta (void) {
-  int op3;
-    printf("\n");
-    printf("/////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                               ///\n");
-    printf("///                           ***********                         ///\n");
-    printf("///                           ** Conta **                         ///\n");
-    printf("///                           ***********                         ///\n");
-    printf("///                                                               ///\n");
-    printf("///                       1 - Criar Conta                         ///\n");
-    printf("///                       2 - Entrar em conta                     ///\n");
-    printf("///                                                               ///\n");
-    printf("///                     Pressione 0 para voltar                   ///\n");
-    scanf("%i", &op3);
-    getchar();
-    printf("///                                                               ///\n");
-    printf("/////////////////////////////////////////////////////////////////////\n");
-    printf("\n");
-  return op3;
+    return op0;
 }
 
 //menu da criação da conta
@@ -122,6 +58,7 @@ int menuEntrarConta (void) {
 	
 	char contaNome[20];
 	char contaSenha[20];
+  int op8;
 	
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////\n");
@@ -138,14 +75,12 @@ int menuEntrarConta (void) {
 	getchar();
     printf("///                                                               ///\n");
     printf("///                    Pressione 0 para voltar                    ///\n");
+    scanf("%i", &op8);
     printf("///                                                               ///\n");
     printf("/////////////////////////////////////////////////////////////////////\n");
     printf("\n");
-  return 0;
+  return op8;
 }
-
-
-
 
 //menu de resetar os dados
 int menuReset (void) {
@@ -168,6 +103,11 @@ int menuReset (void) {
     printf("///                                                               ///\n");
     printf("/////////////////////////////////////////////////////////////////////\n");
     printf("\n");
+    switch (op5){
+      case 'S': printf("conta resetada");
+                break;
+      case 'N': printf("conta nao resetada");
+    }
   return op5;
 }
 
@@ -207,3 +147,114 @@ int menuPlacar (void) {
     printf("\n");
   return 0;
 }
+
+//menu de configuracoes
+int menuConfig (void) {
+  int op2;
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                               ///\n");
+    printf("///                      *******************                      ///\n");
+    printf("///                      ** Configuracoes **                      ///\n");
+    printf("///                      *******************                      ///\n");
+    printf("///                                                               ///\n");
+    printf("///                       1 - Criar Conta                         ///\n");
+    printf("///                       2 - Entrar em conta                     ///\n");
+    printf("///                       3 - Resetar Dados                       ///\n");
+    printf("///                                                               ///\n");
+    printf("///                    Pressione 0 para voltar                    ///\n");
+    scanf("%i", &op2);
+    getchar();
+    printf("///                                                               ///\n");
+    printf("/////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    switch (op2){
+    case 1: menuCriarConta();
+            break;
+    case 2: menuEntrarConta();
+            break;
+    case 3: menuReset();
+            break;
+    case 0:
+            break;
+    }
+  return 0;
+}
+
+//menu Jogar
+int menuJogar(void) {
+  int op7;
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                               ///\n");
+    printf("///                      *******************                      ///\n");
+    printf("///                      **     Jogar     **                      ///\n");
+    printf("///                      *******************                      ///\n");
+    printf("///                                                               ///\n");
+    printf("///                       1 - Jogar                               ///\n");
+    printf("///                       2 - Ver Placares                        ///\n");
+    printf("///                       0 - Sair                                ///\n");
+    printf("///                                                               ///\n");
+    printf("///                    Pressione 0 para voltar                    ///\n");
+    scanf("%i", &op7);
+    getchar();
+    printf("///                                                               ///\n");
+    printf("/////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    switch (op7){
+    case 1: printf("Jogos ainda nao criados");
+            break;
+    case 2: menuPlacar();
+            break;
+    case 0:
+            break;
+    }
+  return 0;
+}
+
+//menu principal
+int menuPrincipal(void) {
+	int op;
+  
+  printf("\n");
+  printf("/////////////////////////////////////////////////////////////////////\n");
+  printf("///                                                               ///\n");
+  printf("///             *************************************             ///\n");
+  printf("///             ** Programa de Digitacao do Kiiush **             ///\n");
+  printf("///             *************************************             ///\n");
+  printf("///                                                               ///\n");
+  printf("///                       1 - Jogar                               ///\n");
+  printf("///                       2 - Configuracoes                       ///\n");
+  printf("///                       3 - Sobre Nos                           ///\n");    
+  printf("///                       0 - Sair                                ///\n");
+  scanf("%i", &op);
+  getchar();
+  printf("///                                                               ///\n");
+  printf("/////////////////////////////////////////////////////////////////////\n");
+  printf("\n");
+  return op;
+}
+
+//menu da conta
+int menuConta (void) {
+  int op3;
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                               ///\n");
+    printf("///                           ***********                         ///\n");
+    printf("///                           ** Conta **                         ///\n");
+    printf("///                           ***********                         ///\n");
+    printf("///                                                               ///\n");
+    printf("///                       1 - Criar Conta                         ///\n");
+    printf("///                       2 - Entrar em conta                     ///\n");
+    printf("///                                                               ///\n");
+    printf("///                     Pressione 0 para voltar                   ///\n");
+    scanf("%i", &op3);
+    getchar();
+    printf("///                                                               ///\n");
+    printf("/////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+  return op3;
+}
+
+
